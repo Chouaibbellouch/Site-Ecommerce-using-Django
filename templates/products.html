@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Produits Disponibles</title>
+    <link rel="stylesheet" href="{% static '/css/products.css' %}">
+</head>
+<body>
+    <h1>Produits Disponibles</h1>
+    <div>
+        {% for produit in produits %}
+            <div>
+                <h2>{{ produit.nom }}</h2>
+                <p>{{ produit.description }}</p>
+                <p>Prix: {{ produit.prix }} €</p>
+                <p>Quantité: {{ produit.quantite }}</p>
+                {% with produit.images.first as image %}
+                    {% if image %}
+                        <img src="{{ image.image.url }}" alt="{{ produit.nom }}" style="width: 200px; height: auto;">
+                    {% else %}
+                        <p>Pas d'image disponible.</p>
+                    {% endif %}
+                {% endwith %}
+            </div>
+        {% empty %}
+            <p>Aucun produit disponible.</p>
+        {% endfor %}
+    </div>
+</body>
+</html>
