@@ -1,1 +1,1 @@
-# Site-Ecommerce-using-Django-and-Angular
+# Site-Ecommerce-using-Django
