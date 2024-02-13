@@ -22,3 +22,14 @@ class ImageProduit(models.Model):
 
     class Meta:
         db_table = 'web_imageproduit'
+
+
+class ContactMessage(models.Model):
+    nom = models.CharField(max_length=100)
+    sujet = models.CharField(max_length=200)
+    email = models.EmailField()
+    message = models.TextField()
+
+    def __str__(self):
+        return f"Message de {self.nom} - {self.sujet}"
+

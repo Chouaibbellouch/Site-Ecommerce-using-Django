@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact - Electro Choses</title>
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+</head>
+<body>
+    <header>
+        <a href="{% url 'home' %}">
+            <img src="{% static '/img/home.png' %}" alt="Logo de la boutique" />
+        </a>
+        <div class="navigation">
+            <ul>
+                <li><a href="/products" class="nav-button">Produits</a></li>
+                <li><a href="/a-propos" class="nav-button">À propos</a></li>
+                <li><a href="/contact" class="nav-button">Contact</a></li>
+            </ul>
+        </div>        
+    </header>
+    <div class="container">
+        <h1>Formulaire de contact</h1>
+        <form method="post" action="{% url 'contact' %}">
+            {% csrf_token %}
+            <label for="fname">Nom & prénom</label>
+            <input type="text" id="fname" name="nom" placeholder="Votre nom et prénom">
+
+            <label for="sujet">Sujet</label>
+            <input type="text" id="sujet" name="sujet" placeholder="L'objet de votre message">
+
+            <label for="emailAddress">Email</label>
+            <input id="emailAddress" type="email" name="email" placeholder="Votre email">
+
+            <label for="subject">Message</label>
+            <textarea id="subject" name="message" placeholder="Votre message" style="height:100px"></textarea>
+
+            <input type="submit" value="Envoyer">
+        </form>
+    </div>
+</body>
+</html>
