@@ -9,3 +9,6 @@ def home(request):
 def show_products(request):
     produits = Produit.objects.all()  # Récupérer tous les produits
     return render(request, 'products.html', {'produits': produits})
+
+def about(request):
+    return render(request, 'about.html')

@@ -4,28 +4,46 @@
 <head>
     <meta charset="UTF-8">
     <title>Produits Disponibles</title>
-    <link rel="stylesheet" href="{% static '/css/products.css' %}">
+    <link rel="stylesheet" href="{% static 'css/products.css' %}">
 </head>
 <body>
+    <header>
+        <a href="{% url 'home' %}">
+            <img src="{% static '/img/home.png' %}" alt="Logo de la boutique" />
+        </a>
+        <div class="navigation">
+            <ul>
+                <li><a href="/products" class="nav-button">Produits</a></li>
+                <li><a href="/a-propos" class="nav-button">À propos</a></li>
+                <li><a href="/contact" class="nav-button">Contact</a></li>
+            </ul>
+        </div>
+    </header>
     <h1>Produits Disponibles</h1>
-    <div>
+    <div class="container">
         {% for produit in produits %}
-            <div>
-                <h2>{{ produit.nom }}</h2>
-                <p>{{ produit.description }}</p>
-                <p>Prix: {{ produit.prix }} €</p>
-                <p>Quantité: {{ produit.quantite }}</p>
+            <div class="produit">
                 {% with produit.images.first as image %}
                     {% if image %}
-                        <img src="{{ image.image.url }}" alt="{{ produit.nom }}" style="width: 200px; height: auto;">
+                        <img src="{{ image.image.url }}" alt="{{ produit.nom }}">
                     {% else %}
-                        <p>Pas d'image disponible.</p>
+                        <img src="{% static '/img/default.jpg' %}" alt="Default Image">
                     {% endif %}
                 {% endwith %}
+                <h2>{{ produit.nom }}</h2>
+                <p>{{ produit.description }}</p>
+                <div class="prix">{{ produit.prix }}€</div>
+                <!-- Ici, vous pouvez ajouter d'autres détails comme les évaluations -->
             </div>
-        {% empty %}
-            <p>Aucun produit disponible.</p>
         {% endfor %}
     </div>
+    <footer>
+        <p>© 2023 Ma Boutique En Ligne - Tous droits réservés.</p>
+        <ul>
+          <li><a href="#conditions">Conditions d'utilisation</a></li>
+          <li><a href="#confidentialite">Politique de confidentialité</a></li>
+          <li><a href="#contact">Nous contacter</a></li>
+        </ul>
+    </footer>    
 </body>
 </html>

@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>À Propos - Electro Choses</title>
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+</head>
+<body>
+    <div class="content-wrapper">
+        <div class="about-container">
+            <img src="{% static 'img/home.png' %}" alt="À propos de nous" class="about-image">
+            <p class="about-description">
+                Electro Choses est votre magasin de confiance pour tous les appareils électroniques. 
+                Fondé en 2023, Par Chouaib BELLOUCH, nous nous engageons à fournir les meilleurs produits et un service client exceptionnel. 
+                Que vous soyez à la recherche du dernier smartphone ou de l'équipement audio le plus sophistiqué, 
+                vous trouverez ce dont vous avez besoin chez Electro Choses.
+            </p>
+            <div class="navigation">
+                <ul>
+                    <li><a href="/" class="nav-button">Revenir vers la page principale</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>© 2023 Ma Boutique En Ligne - Tous droits réservés.</p>
+        <ul>
+          <li><a href="#conditions">Conditions d'utilisation</a></li>
+          <li><a href="#confidentialite">Politique de confidentialité</a></li>
+          <li><a href="#contact">Nous contacter</a></li>
+        </ul>
+    </footer>
+</body>
+</html>

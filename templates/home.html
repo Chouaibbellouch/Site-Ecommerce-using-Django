@@ -10,15 +10,15 @@
 <body>
     <header>
         <a href="{% url 'home' %}">
-            <img src="{% static '/img/home.jpeg' %}" alt="Logo de la boutique" />
+            <img src="{% static '/img/home.png' %}" alt="Logo de la boutique" />
         </a>
-        <nav>
-          <ul>
-            <li><a href="/products">Produits</a></li>
-            <li><a href="/a-propos">À propos</a></li>
-            <li><a href="/contact">Contact</a></li>
-          </ul>
-        </nav>
+        <div class="navigation">
+            <ul>
+                <li><a href="/products" class="nav-button">Produits</a></li>
+                <li><a href="/a-propos" class="nav-button">À propos</a></li>
+                <li><a href="/contact" class="nav-button">Contact</a></li>
+            </ul>
+        </div>        
     </header>
     <main>
         <section id="produits-en-vedette">

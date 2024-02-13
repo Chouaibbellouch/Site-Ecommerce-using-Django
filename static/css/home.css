@@ -43,9 +43,33 @@ body {
     height: 3rem;
   }
 
-  nav ul {
-    display: flex;
-  }
+  .navigation ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Ajustez selon votre mise en page */
+    justify-content: center; /* Centre les éléments s'ils ne prennent pas toute la largeur */
+}
+
+.navigation li {
+    margin: 0 10px; /* Ajustez l'espacement selon vos besoins */
+}
+
+.nav-button {
+    display: block;
+    padding: 10px 20px; /* Ajustez le padding selon vos besoins */
+    background-color: #FE3847; /* Couleur de fond initiale */
+    color: white; /* Couleur du texte */
+    text-decoration: none; /* Supprime le soulignement du texte */
+    transition: background-color 0.3s; /* Animation douce pour le changement de couleur */
+    border-radius: 5px; /* Bords arrondis */
+}
+
+.nav-button:hover {
+    background-color: #75C6FB;
+    text-decoration: none; /* Couleur de fond au survol */
+}
+
 
   /* Main */
   main {
