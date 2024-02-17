@@ -4,16 +4,7 @@ from web.forms import ContactForm
 
 
 def home(request):
-    query = request.GET.get('q', '')
-    selected_categorie = request.GET.get('categorie', 'all')
     produits = Produit.objects.all()
-
-    if selected_categorie != 'all':
-        produits = produits.filter(categorie=selected_categorie)
-
-    if query:
-        produits = produits.filter(nom__icontains=query) | produits.filter(description__icontains=query)
-
     return render(request, 'home.html', {'produits': produits})
 
 
@@ -50,3 +41,17 @@ def success(request):
 def categorie(request, nom_categorie):
     produits = Produit.objects.filter(categorie=nom_categorie)  # Filtrer par catégorie
     return render(request, 'categorie.html', {'produits': produits, 'nom_categorie': nom_categorie})
+
+
+def recherche(request):
+    query = request.GET.get('q', '')  # Obtient le terme de recherche de l'URL
+    selected_categorie = request.GET.get('categorie', 'all')
+
+    if selected_categorie != 'all':
+        produits = Produit.objects.filter(categorie=selected_categorie, 
+                                          nom__icontains=query)
+    else:
+        produits = Produit.objects.filter(nom__icontains=query)
+
+    return render(request, 'resultats_recherche.html', {'produits': produits})
+
