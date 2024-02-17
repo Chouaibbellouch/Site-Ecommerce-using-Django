@@ -6,6 +6,7 @@ class ImageProduitAdmin(admin.StackedInline):
     extra = 1  # Nombre d'images à afficher par défaut
 
 class ProduitAdmin(admin.ModelAdmin):
+    list_display = ['nom', 'categorie']
     inlines = [ImageProduitAdmin]
 
 admin.site.register(Produit, ProduitAdmin)

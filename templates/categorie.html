@@ -1,9 +1,9 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Produits Disponibles</title>
+    <title>Catégorie: {{ nom_categorie|title }}</title>
     <link rel="stylesheet" href="{% static 'css/products.css' %}">
 </head>
 <body>
@@ -19,7 +19,7 @@
             </ul>
         </div>
     </header>
-    <h1>Produits Disponibles</h1>
+    <h1>Produits dans la catégorie: {{ nom_categorie|title }}</h1>
     <div class="container">
         {% for produit in produits %}
             <div class="produit">
@@ -27,23 +27,22 @@
                     {% if image %}
                         <img src="{{ image.image.url }}" alt="{{ produit.nom }}">
                     {% else %}
-                        <img src="{% static '/img/default.jpg' %}" alt="Default Image">
+                        <img src="{% static '/img/default.jpg' %}" alt="Image par défaut">
                     {% endif %}
                 {% endwith %}
                 <h2>{{ produit.nom }}</h2>
                 <p>{{ produit.description }}</p>
                 <div class="prix">{{ produit.prix }}€</div>
-                <!-- Ici, vous pouvez ajouter d'autres détails comme les évaluations -->
             </div>
+        {% empty %}
+            <p>Aucun produit trouvé dans cette catégorie.</p>
         {% endfor %}
     </div>
     <footer>
         <p>© 2023 Electro Choses - Tous droits réservés.</p>
         <ul>
-            <ul>
-                <li><a href="/a-propos">À propos</a></li>
-                <li><a href="/contact">Nous contacter</a></li>
-            </ul>
+            <li><a href="/a-propos">À propos</a></li>
+            <li><a href="/contact">Nous contacter</a></li>
         </ul>
     </footer>    
 </body>

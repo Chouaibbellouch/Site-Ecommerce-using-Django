@@ -27,5 +27,6 @@ urlpatterns = [
     path('a-propos/', views.about, name="about"),
     path('contact/',  views.contact, name="contact"),
     path('success/',  views.success, name="success"),
+    path('categories/<str:nom_categorie>/', views.categorie, name='categorie'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

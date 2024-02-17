@@ -1,10 +1,19 @@
 from django.db import models
 
 class Produit(models.Model):
+    CATEGORIE_CHOICES = [
+        ('pc', 'PC'),
+        ('pc_portable', 'PC Portable'),
+        ('gaming', 'Gaming'),
+        ('telephone', 'Téléphone'),
+        ('tablettes', 'Tablettes'),
+        ('accessoires', 'Accessoires'),
+    ]
     nom = models.CharField(max_length=100)
     description = models.TextField()
     prix = models.DecimalField(max_digits=10, decimal_places=2)
     quantite = models.IntegerField(default=0)
+    categorie = models.CharField(max_length=100, choices=CATEGORIE_CHOICES)
     en_stock = models.BooleanField(default=True)
 
     def __str__(self):
