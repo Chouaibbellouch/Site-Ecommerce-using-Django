@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ produit.nom }}</title>
+    <link rel="stylesheet" href="{% static 'css/produit.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
+</head>
+<body>
+    <header>
+        <a href="{% url 'home' %}">
+            <img src="{% static '/img/home.png' %}" alt="Logo de la boutique" />
+        </a>
+        <div class="navigation">
+            <ul>
+                <li><a href="/products" class="nav-button">Produits</a></li>
+                <li><a href="/a-propos" class="nav-button">À propos</a></li>
+                <li><a href="/contact" class="nav-button">Contact</a></li>
+                <a href="#" class="nav-button cart-link">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="badge">{{ h }}</span> Panier
+                </a>
+        </div>
+    </header>
+    <div class="product-container">
+        <div class="product-images">
+            <div class="image-gallery">
+                {% for image in produit.images.all %}
+                    <img src="{{ image.image.url }}" alt="{{ produit.nom }}" class="product-image" style="display: none;">
+                {% endfor %}
+                <button class="prev" onclick="changeImage(-1)">❮</button>
+                <button class="next" onclick="changeImage(1)">❯</button>
+            </div>    
+        </div>
+        <div class="right-container">
+            <div class="product-details">
+                <h1>{{ produit.nom }}</h1>
+                <p>{{ produit.description }}</p>
+                <p class="price">Prix: {{ produit.prix }}€</p>
+                <!-- Ajoutez ici d'autres détails ou fonctionnalités comme un bouton d'achat -->
+            </div>
+            <form action="{% url 'add_to_cart' produit.id %}" method="post" class="panier">
+                {% csrf_token %}
+                <input type="number" name="quantity" value="0" min="1">
+                <input type="submit" value="Ajouter au panier">
+            </form>
+        </div>
+    </div>
+    
+   
+    
+  
+    <div id="cart-container" class="cart-sidebar">
+        <div class="cart-header">
+            <h2>Panier</h2>
+            <button class="close-cart" onclick="toggleCart()"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items">
+            
+        </div>
+    </div>
+    
+
+    <footer>
+        <p>© 2023 Electro Choses - Tous droits réservés.</p>
+        <ul>
+          <li><a href="/a-propos">À propos</a></li>
+          <li><a href="/contact">Nous contacter</a></li>
+        </ul>
+    </footer>
+
+    <script src="{% static 'js/produit.js' %}"></script>
+</body>
+</html>

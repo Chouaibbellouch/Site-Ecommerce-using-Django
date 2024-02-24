@@ -87,6 +87,12 @@ h1 {
     font-weight: bold;
 }
 
+.product-container {
+    display: block;
+    text-decoration: none; /* Retire le soulignement des liens */
+    color: inherit; /* Garde la couleur du texte héritée du parent */
+}
+
 footer {
     display: flex;
     flex-direction: column;
@@ -121,3 +127,8 @@ footer {
         flex: 1 1 100%; /* Chaque produit prend toute la largeur sur les petits écrans */
     }
 }
+
+a {
+    color: #0066cc;
+    text-decoration: none;
+  }

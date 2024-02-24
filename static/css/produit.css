@@ -1,0 +1,233 @@
+body {
+    background-color: #f7f7f7;
+}
+
+.navigation ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Ajustez selon votre mise en page */
+    justify-content: center; /* Centre les éléments s'ils ne prennent pas toute la largeur */
+}
+
+.navigation li {
+    margin: 0 10px; /* Ajustez l'espacement selon vos besoins */
+}
+
+.nav-button {
+    display: block;
+    padding: 10px 20px; /* Ajustez le padding selon vos besoins */
+    background-color: #FE3847; /* Couleur de fond initiale */
+    color: white; /* Couleur du texte */
+    text-decoration: none; /* Supprime le soulignement du texte */
+    transition: background-color 0.3s; /* Animation douce pour le changement de couleur */
+    border-radius: 5px; /* Bords arrondis */
+}
+
+.nav-button:hover {
+    background-color: #75C6FB;
+    text-decoration: none; /* Couleur de fond au survol */
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #f7f7f7;
+}
+
+header img {
+    height: 3rem;
+}
+
+
+
+
+.product-container {
+    display: flex;
+    margin: 20px;
+}
+
+.image-gallery {
+    position: relative;
+    width: 400px; /* Ajustez la largeur selon vos besoins */
+    height: 300px; /* Hauteur fixe pour la cohérence */
+    background-color: #f7f7f7;
+    padding-top: 20%;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    z-index: 100;
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+.product-details {
+    flex: 1;
+    padding-left: 40%;
+}
+
+.price {
+    font-size: 1.5em;
+    color: #333;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: 1px solid #ccc;
+    padding-top: 1rem;
+  }
+
+  footer p {
+    margin-bottom: 1rem;
+  }
+
+  footer ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+  }
+
+  footer li {
+    margin-right: 1rem;
+  }
+
+  a {
+    color: #0066cc;
+    text-decoration: none;
+  }
+
+  .panier {
+    display: flex;
+    flex-direction: row; /* Pour aligner les éléments du formulaire horizontalement */
+    justify-content: center; /* Centrer les éléments du formulaire dans le conteneur */
+    padding-top: -20px; 
+    padding-left: 60%;
+    margin: auto;
+}
+
+.panier input[type="number"], .panier input[type="submit"] {
+    padding: 10px; /* Ajouter du padding pour une meilleure apparence */
+    font-size: 16px; /* Ajuster la taille de la police si nécessaire */
+}
+
+.panier input[type="submit"] {
+    background-color: #75C6FB; /* Couleur du bouton */
+    color: white; /* Couleur du texte du bouton */
+    border: none;
+    cursor: pointer;
+}
+
+.panier input[type="submit"]:hover {
+    background-color: #FE3847;
+}
+  .badge {
+    background-color: red;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 50%;
+    font-size: 0.75em;
+    position: relative;
+    top: -10px;
+    right: 10px;
+  }
+  
+  .cart-sidebar {
+    position: fixed;
+    top: 0;
+    right: -400px; /* Commencez en dehors de l'écran */
+    width: 400px;
+    height: 100%;
+    background: #fff;
+    box-shadow: -5px 0 5px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    transition: right 0.3s ease;
+}
+
+.cart-sidebar.open {
+    right: 0; /* Glissez dans la vue */
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+}
+
+.cart-item-image {
+    flex: 0 0 100px; /* Largeur fixe pour l'image */
+    padding-right: 10px; /* Espacement entre l'image et les détails */
+}
+
+.cart-item-image img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.cart-item-details {
+    flex-grow: 1;
+}
+
+.cart-sidebar .cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #ddd;
+}
+
+.cart-sidebar .cart-header h2 {
+    margin: 0;
+}
+
+.cart-sidebar .close-cart {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #333;
+}
+
+.quantity-controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.delete-item {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: red;
+}

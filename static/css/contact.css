@@ -37,7 +37,7 @@ input[type=submit]:hover {
 .container {
     box-sizing: border-box;
     border-radius: 5px;
-    background-color: #f2f2f2;
+    background-color: #75C6FB;
     padding: 20px;
     width: 100%;
     max-width: 440px;
@@ -45,7 +45,7 @@ input[type=submit]:hover {
 }
 
 h1 {
-    color: #ffc800;
+    color: #FE3847;
     width: 100%;
 }
 
@@ -87,3 +87,4 @@ header {
 header img {
     height: 3rem;
 }
+

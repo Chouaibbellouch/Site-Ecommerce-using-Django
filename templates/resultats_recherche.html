@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" type="text/css" href="{% static '/css/home.css' %}">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
 </head>
 <body>
     <header>
@@ -44,14 +45,22 @@
             <div class="produit">
                 {% with produit.images.first as image %}
                     {% if image %}
-                        <img src="{{ image.image.url }}" alt="{{ produit.nom }}">
+                        <a href="{% url 'detail_produit' nom_du_produit=produit.get_slug %}">
+                            <img src="{{ image.image.url }}" alt="{{ produit.nom }}">
+                        </a>
                     {% else %}
-                        <img src="{% static '/img/default.jpg' %}" alt="Default Image">
+                        <a href="{% url 'detail_produit' nom_du_produit=produit.get_slug %}">
+                            <img src="{% static '/img/default.jpg' %}" alt="Default Image">
+                        </a>
                     {% endif %}
                 {% endwith %}
-                <h2>{{ produit.nom }}</h2>
-                <p>{{ produit.description }}</p>
-                <div class="prix">{{ produit.prix }}€</div>
+                <a href="{% url 'detail_produit' nom_du_produit=produit.get_slug %}" class="product-container">
+                    <div class="produitt">
+                        <h2>{{ produit.nom }}</h2>
+                        <p>{{ produit.description }}</p>
+                        <div class="prix">{{ produit.prix }}€</div>
+                    </div>
+                </a>
                 <!-- Ici, vous pouvez ajouter d'autres détails comme les évaluations -->
             </div>
         {% empty %}

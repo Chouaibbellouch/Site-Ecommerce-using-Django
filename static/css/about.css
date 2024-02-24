@@ -78,3 +78,8 @@ footer {
   footer li {
     margin-right: 1rem;
   }
+
+  a {
+    color: #0066cc;
+    text-decoration: none;
+  }

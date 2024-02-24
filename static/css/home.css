@@ -194,32 +194,47 @@ section h2 {
 }
 
 
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Cette propriété répartit l'espace uniformément */
+    padding: 20px;
+    gap: 20px; /* Espace entre les éléments */
+}
+
 .produit {
-  flex: 1 1 calc(33.333% - 20px); /* Prend en compte l'espace entre les éléments */
-  display: flex;
-  flex-direction: column; /* Organise les éléments du produit de façon verticale */
-  align-items: center; /* Centre les éléments horizontalement */
-  background-color: #fff;
-  border: 1px solid #ddd;
-  padding: 10px;
-  box-sizing: border-box;
+    flex: 1 1 calc(33.333% - 20px); /* Prend en compte l'espace entre les éléments */
+    display: flex;
+    flex-direction: column; /* Organise les éléments du produit de façon verticale */
+    align-items: center; /* Centre les éléments horizontalement */
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 .produit img {
-  height: auto; /* Maintient le rapport d'aspect de l'image */
-  width: 100%; /* Utilisez une largeur maximale pour la flexibilité */
-  max-height: 200px; /* Hauteur maximale pour l'uniformité */
-  object-fit: contain; /* S'assure que l'image est complètement visible, réduite si nécessaire */
-  margin-bottom: 15px; /* Espacement entre l'image et le texte en dessous */
+    height: auto; /* Maintient le rapport d'aspect de l'image */
+    width: 100%; /* Utilisez une largeur maximale pour la flexibilité */
+    max-height: 200px; /* Hauteur maximale pour l'uniformité */
+    object-fit: contain; /* S'assure que l'image est complètement visible, réduite si nécessaire */
+    margin-bottom: 15px; /* Espacement entre l'image et le texte en dessous */
 }
 
 .produit h2, .produit p, .produit .prix {
-  width: 100%;
-  text-align: center; /* Centre le texte */
+    width: 100%;
+    text-align: center; /* Centre le texte */
+    text-decoration: none;
 }
 
 .produit .prix {
-  margin-top: 10px;
-  font-size: 1.2em;
-  font-weight: bold;
+    margin-top: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.product-container {
+    display: block;
+    text-decoration: none; /* Retire le soulignement des liens */
+    color: inherit; /* Garde la couleur du texte héritée du parent */
 }
